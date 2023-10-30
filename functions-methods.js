@@ -9,7 +9,21 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+function getEmailDomain(email) {
 
+    const domain = email.split("@")
+    // if (domain.length >= 2) {
+    //     return domain[domain.length - 1]
+    // } else {
+    //     return email
+    // }
+
+    return domain[1];
+}
+
+console.log(getEmailDomain("n.eeken@novi-education.nl"));
+console.log(getEmailDomain("nickneggers@novi.nl"));
+console.log(getEmailDomain("nickneggers@outlook.com"));
 
 
 /* Opdracht  2 */
@@ -20,6 +34,34 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typOfEamil(email) {
+    const arrayPart = email.split("@");
+    // if (arrayPart[1] === "novi-education.nl") {
+    //     return "Student";
+    // } else if (arrayPart[1] === "novi.nl"){
+    //     return "Medewerker";
+    // } else if (arrayPart[1] === "outlook.com") {
+    //     return "Extern";
+    // } else {
+    //     return "Email onbekend";
+    // }
+
+    switch (arrayPart[1]) {
+        case "novi-education.nl":
+            return "Student"
+        case "novi.nl":
+            return "medewerker"
+        case "outlook.com":
+            return "Extern"
+        default:
+            return "Onbekend"
+    }
+
+}
+
+console.log(typOfEamil("n.eeken@novi-education.nl"));
+console.log(typOfEamil("n.eeken@novi.nl"));
+console.log(typOfEamil("n.eeken@hotmail.com"));
 
 
 /* Opdracht  3 */
@@ -34,3 +76,26 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity(email) {
+    const checkApenstaartje = email.includes("@");
+    const checkNoComma = email.includes(","); //deze moet false zijn
+    const checkPoint = email.lastIndexOf(".");
+    const checkNoPoint = checkPoint === email.length -1;
+
+
+    if (checkApenstaartje === true && checkNoComma === false && checkNoPoint === false) {
+        return true
+    } else {
+        return false
+    }
+
+}
+
+
+
+console.log(checkEmailValidity("n.eeken@novi.nl"));
+console.log(checkEmailValidity("tessmellink@novi.nl"));
+console.log(checkEmailValidity("n.eekenanovi.nl"));
+console.log(checkEmailValidity("n.eeken@novinl."));
+console.log(checkEmailValidity("tessmellink@novi,nl"));

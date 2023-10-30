@@ -12,11 +12,7 @@
 function getEmailDomain(email) {
 
     const domain = email.split("@")
-    // if (domain.length >= 2) {
-    //     return domain[domain.length - 1]
-    // } else {
-    //     return email
-    // }
+
 
     return domain[1];
 }
@@ -36,15 +32,7 @@ console.log(getEmailDomain("nickneggers@outlook.com"));
 
 function typOfEamil(email) {
     const arrayPart = email.split("@");
-    // if (arrayPart[1] === "novi-education.nl") {
-    //     return "Student";
-    // } else if (arrayPart[1] === "novi.nl"){
-    //     return "Medewerker";
-    // } else if (arrayPart[1] === "outlook.com") {
-    //     return "Extern";
-    // } else {
-    //     return "Email onbekend";
-    // }
+
 
     switch (arrayPart[1]) {
         case "novi-education.nl":
